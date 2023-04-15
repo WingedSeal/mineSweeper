@@ -53,7 +53,6 @@ classDiagram
     MenuPanel *-- StartButton
 
     class DifficultySelector {
-        -Difficulty[] DIFFICULTIES*
         -int FONT_SIZE*
         DifficultySelector()
     }
