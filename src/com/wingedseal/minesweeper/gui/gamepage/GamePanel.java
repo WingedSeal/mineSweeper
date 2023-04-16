@@ -154,15 +154,11 @@ public class GamePanel extends JPanel implements CellClickListener {
         if (cell.button.getCellState() == CellState.REVEALED) return;
 
         if (isByUser) {
-            final int delay = 100;
+            final int delay = 200;
             getEmojiButton().setEmojiState(EmojiState.NORMAL_CELL_FOUND);
             Timer timer = new Timer(delay, e -> {
-                try {
-                    Thread.sleep(delay);
-                    if (getEmojiButton().getEmojiState() == EmojiState.NORMAL_CELL_FOUND)
-                        getEmojiButton().setEmojiState(EmojiState.IDLE);
-                } catch (Exception ignored) {
-                }
+                if (getEmojiButton().getEmojiState() == EmojiState.NORMAL_CELL_FOUND)
+                    getEmojiButton().setEmojiState(EmojiState.IDLE);
             });
             timer.setRepeats(false);
             timer.start();
