@@ -8,7 +8,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-import static com.wingedseal.minesweeper.utils.NumberToCustomString.toCustomString;
 import static com.wingedseal.minesweeper.utils.Offset.*;
 
 public class GamePanel extends JPanel implements CellClickListener {
@@ -30,7 +29,7 @@ public class GamePanel extends JPanel implements CellClickListener {
     }
 
     private void updateMinesLeft() {
-        statsPanel.minesLeftDisplay.setText(toCustomString(estimatedMinesLeft));
+        statsPanel.minesLeftDisplay.setNumber(estimatedMinesLeft);
     }
 
     public EmojiButton getEmojiButton() {

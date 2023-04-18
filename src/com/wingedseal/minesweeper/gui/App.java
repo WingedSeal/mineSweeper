@@ -4,12 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
-public class App extends Window {}
-class Window extends JFrame {
+public class App extends JFrame {
     private static final String TITLE = "mineSweeper";
     private static final String ICON_PATH = "assets/WingedSeal64x64.png";
 
-    public Window() {
+    public App() {
         super(TITLE + " (WingedSeal Edition)");
         add(new MainPanel(TITLE));
         final URL resource = getClass().getResource(ICON_PATH);

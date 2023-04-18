@@ -5,12 +5,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class StatsPanel extends JPanel {
-    MinesLeftDisplay minesLeftDisplay = new MinesLeftDisplay(FONT);
+    MinesLeftDisplay minesLeftDisplay = new MinesLeftDisplay();
     EmojiButton emojiButton = new EmojiButton();
-    TimerDisplay timerDisplay = new TimerDisplay(FONT);
-
-    private static final int FONT_SIZE = 50;
-    private static final Font FONT = new Font("Times New Roman", Font.BOLD, FONT_SIZE);
+    TimerDisplay timerDisplay = new TimerDisplay();
     private static final int PADDING_SIZE_X = 20;
     private static final int PADDING_SIZE_Y = 5;
 
