@@ -1,12 +1,9 @@
 ```mermaid
 classDiagram
-    class App
-    Window <|-- App
-
-    class Window {
+    class App {
         -String TITLE*
         -String ICON_PATH*
-        +Window()
+        +App()
     }
 
     class MainPanel {
@@ -17,7 +14,7 @@ classDiagram
         -String GAME*
         MainPanel(String)
     }
-    Window *-- MainPanel
+    App *-- MainPanel
 
     class MenuPanel {
         -StartButton startButton
@@ -209,18 +206,11 @@ classDiagram
         MinesLeftDisplay minesLeftDisplay
         EmojiButton emojiButton
         TimerDisplay timerDisplay
-        -int FONT_SIZE*
-        -Font FONT*
         -int PADDING_SIZE_X*
         -int PADDING_SIZE_Y*
         StatsPanel()
     }
     GamePanel *-- StatsPanel
-
-    class MinesLeftDisplay {
-        MinesLeftDisplay(Font)
-    }
-    StatsPanel *-- MinesLeftDisplay
 
     class EmojiButton {
         +EmojiButton()
@@ -241,15 +231,31 @@ classDiagram
     }
     EmojiButton *-- EmojiState
 
+    class NumberDisplay {
+        -int FONT_SIZE*
+        -Font FONT*
+        NumberDisplay(int) 
+        void setNumber(int)
+        -String toCustomString(int)*
+    }
+
+    class MinesLeftDisplay {
+        MinesLeftDisplay()
+    }
+    StatsPanel *-- MinesLeftDisplay
+    NumberDisplay <|-- MinesLeftDisplay
+
+
     class TimerDisplay {
         -int timePassed 
         -int TIME_START_AT*
         -Timer timer
-        +TimerDisplay(Font)
+        +TimerDisplay()
         +void startTimer()
         +void stopTimer()
     }
     StatsPanel *-- TimerDisplay
+    NumberDisplay <|-- TimerDisplay
 
     class IconDraw {
         -double NORMAL_BORDER_WIDTH_SCALE*
@@ -270,10 +276,6 @@ classDiagram
         +void drawNormalCellFoundEmoji(Graphics, int, int)*
         +void drawWinEmoji(Graphics, int, int)*
         +void drawLoseEmoji(Graphics, int, int)*
-    }
-
-    class NumberToCustomString {
-        +String toCustomString(int)*
     }
 
     class Offset {

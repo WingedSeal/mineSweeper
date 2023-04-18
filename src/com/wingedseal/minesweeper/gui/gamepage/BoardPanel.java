@@ -25,7 +25,6 @@ public class BoardPanel extends JPanel {
                 button.addMouseListener(new MouseListener() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
-
                     }
 
                     @Override
