@@ -86,6 +86,7 @@ public class SizeSelector extends JPanel {
 
 class SizeSelectorSlider extends JSlider {
     private static final int FONT_SIZE = 15;
+
     SizeSelectorSlider() {
         super(0, SizeSelector.MAX_SIZE, SizeSelector.DEFAULT_SIZE);
         setFont(new Font("Times New Roman", Font.PLAIN, FONT_SIZE));
