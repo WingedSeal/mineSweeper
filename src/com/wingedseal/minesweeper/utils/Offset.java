@@ -2,33 +2,31 @@ package com.wingedseal.minesweeper.utils;
 
 
 public record Offset(int deltaX, int deltaY) {
-    private static final Offset[] NEIGHBOR_OFFSETS = {
-            // ADJACENT_OFFSETS
+
+    private static final Offset[] ADJACENT_OFFSETS = {
             new Offset(-1, 0),
             new Offset(0, -1),
             new Offset(0, 1),
             new Offset(1, 0),
-            // CORNER_OFFSETS
+    };
+
+    private static final Offset[] CORNER_OFFSETS = {
             new Offset(-1, -1),
             new Offset(-1, 1),
             new Offset(1, -1),
             new Offset(1, 1),
     };
 
-    private static final Offset[] ADJACENT_OFFSETS = {
-            NEIGHBOR_OFFSETS[0],
-            NEIGHBOR_OFFSETS[1],
-            NEIGHBOR_OFFSETS[2],
-            NEIGHBOR_OFFSETS[3],
+    private static final Offset[] NEIGHBOR_OFFSETS = {
+            ADJACENT_OFFSETS[0],
+            ADJACENT_OFFSETS[1],
+            ADJACENT_OFFSETS[2],
+            ADJACENT_OFFSETS[3],
+            CORNER_OFFSETS[0],
+            CORNER_OFFSETS[1],
+            CORNER_OFFSETS[2],
+            CORNER_OFFSETS[3],
     };
-
-    private static final Offset[] CORNER_OFFSETS = {
-            NEIGHBOR_OFFSETS[4],
-            NEIGHBOR_OFFSETS[5],
-            NEIGHBOR_OFFSETS[6],
-            NEIGHBOR_OFFSETS[7],
-    };
-
 
     public static Offset[] get4AdjacentOffsets() {
         return ADJACENT_OFFSETS;
