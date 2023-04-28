@@ -21,8 +21,8 @@ classDiagram
         -DifficultySelector difficultySelector
         -SizeSelector sizeXSelector
         -SizeSelector sizeYSelector
-        -int PADDING_SIZE_X*
-        -int PADDING_SIZE_Y*
+        -int PADDING_SIZE_X$
+        -int PADDING_SIZE_Y$
         +MenuPanel(String)
         +StartButton getStartButton()
         +Settings getSettings()
@@ -43,14 +43,14 @@ classDiagram
     MenuPanel -- Settings
 
     class StartButton {
-        -int DEFAULT_FONT_SIZE*
+        -int DEFAULT_FONT_SIZE$
         -int fontSize
         StartButton()
     }
     MenuPanel *-- StartButton
 
     class DifficultySelector {
-        -int FONT_SIZE*
+        -int FONT_SIZE$
         DifficultySelector()
     }
     MenuPanel *-- DifficultySelector
@@ -58,17 +58,17 @@ classDiagram
     class SizeSelector {
         -SizeSelectorSlider slider
         -JTextField textField
-        +int MAX_SIZE*
-        +int MIN_SIZE*
-        +int DEFAULT_SIZE*
-        -int FONT_SIZE*
+        +int MAX_SIZE$
+        +int MIN_SIZE$
+        +int DEFAULT_SIZE$
+        -int FONT_SIZE$
         SizeSelector(String)
         +int getValue()
     }
     MenuPanel *-- SizeSelector
 
     class SizeSelectorSlider {
-        -int FONT_SIZE*
+        -int FONT_SIZE$
         SizeSelectorSlider()
         +int getValue()
     }
@@ -80,7 +80,7 @@ classDiagram
         -BoardPanel boardPanel
         -StatsPanel statsPanel
         -GameState gameState
-        -int PADDING_SIZE*
+        -int PADDING_SIZE$
         +GamePanel()
         -void updateMinesLeft()
         +EmojiButton getEmojiButton()
@@ -172,15 +172,15 @@ classDiagram
     CellButton *-- Cell
 
     class GenerateGrid {
-        -Random random*
+        -Random random$
         -int[][] grid
         -int sizeX
         -int sizeY
         -int numberOfMines
         -int maxNeighBorMines
-        -int NEIGHBOR_MINE_COUNT_COUNTER*
+        -int NEIGHBOR_MINE_COUNT_COUNTER$
         +GenerateGrid(int, int, int, int)
-        +int calculateNeighborMineCount(int)*
+        +int calculateNeighborMineCount(int)$
         -boolean hasNeighborMinesMoreThanMax(int, int)
         -boolean shouldReRandom(int, int)
         +int[][] generateMines()
@@ -206,8 +206,8 @@ classDiagram
         MinesLeftDisplay minesLeftDisplay
         EmojiButton emojiButton
         TimerDisplay timerDisplay
-        -int PADDING_SIZE_X*
-        -int PADDING_SIZE_Y*
+        -int PADDING_SIZE_X$
+        -int PADDING_SIZE_Y$
         StatsPanel()
     }
     GamePanel *-- StatsPanel
@@ -232,11 +232,11 @@ classDiagram
     EmojiButton *-- EmojiState
 
     class NumberDisplay {
-        -int FONT_SIZE*
-        -Font FONT*
+        -int FONT_SIZE$
+        -Font FONT$
         NumberDisplay(int) 
         void setNumber(int)
-        -String toCustomString(int)*
+        -String toCustomString(int)$
     }
 
     class MinesLeftDisplay {
@@ -248,7 +248,7 @@ classDiagram
 
     class TimerDisplay {
         -int timePassed 
-        -int TIME_START_AT*
+        -int TIME_START_AT$
         -Timer timer
         +TimerDisplay()
         +void startTimer()
@@ -258,38 +258,38 @@ classDiagram
     NumberDisplay <|-- TimerDisplay
 
     class IconDraw {
-        -double NORMAL_BORDER_WIDTH_SCALE*
-        -double REVEALED_BORDER_WIDTH_SCALE*
-        -double FONT_SCALE*
-        -double BOMB_SCALE*
-        -double BOMB_SPIKE_WIDTH_SCALE*
-        -double BOMB_SPIKE_HEIGHT_SCALE*
-        -double EMOJI_SCALE*
-        -double EMOJI_STROKE_WIDTH*
-        +void drawNormalCell(Graphics, int, int)*
-        +void drawEmptyCell(Graphics, int, int)*
-        +void drawNumber(Graphics, int, int, String)*
-        +void drawFlag(Graphics, int, int)*
-        +void drawBomb(Graphics, int, int)*
-        +void drawBaseEmoji(Graphics, int, int)*
-        +void drawIdleEmoji(Graphics, int, int)*
-        +void drawNormalCellFoundEmoji(Graphics, int, int)*
-        +void drawWinEmoji(Graphics, int, int)*
-        +void drawLoseEmoji(Graphics, int, int)*
+        -double NORMAL_BORDER_WIDTH_SCALE$
+        -double REVEALED_BORDER_WIDTH_SCALE$
+        -double FONT_SCALE$
+        -double BOMB_SCALE$
+        -double BOMB_SPIKE_WIDTH_SCALE$
+        -double BOMB_SPIKE_HEIGHT_SCALE$
+        -double EMOJI_SCALE$
+        -double EMOJI_STROKE_WIDTH$
+        +void drawNormalCell(Graphics, int, int)$
+        +void drawEmptyCell(Graphics, int, int)$
+        +void drawNumber(Graphics, int, int, String)$
+        +void drawFlag(Graphics, int, int)$
+        +void drawBomb(Graphics, int, int)$
+        +void drawBaseEmoji(Graphics, int, int)$
+        +void drawIdleEmoji(Graphics, int, int)$
+        +void drawNormalCellFoundEmoji(Graphics, int, int)$
+        +void drawWinEmoji(Graphics, int, int)$
+        +void drawLoseEmoji(Graphics, int, int)$
     }
 
     class Offset {
         -int deltaX
         -int deltaY
-        -Offset[] NEIGHBOR_OFFSETS*
-        -Offset[] ADJACENT_OFFSETS*
-        -Offset[] CORNER_OFFSETS*
+        -Offset[] NEIGHBOR_OFFSETS$
+        -Offset[] ADJACENT_OFFSETS$
+        -Offset[] CORNER_OFFSETS$
         +Offset(int, int)
         +int deltaX()
         +int deltaY()
-        +Offset[] get4AdjacentOffsets()*
-        +Offset[] get4CornerOffsets()*
-        +Offset[] get8NeighborOffsets()*
-        +Offset[] isNotInRange()*
+        +Offset[] get4AdjacentOffsets()$
+        +Offset[] get4CornerOffsets()$
+        +Offset[] get8NeighborOffsets()$
+        +Offset[] isNotInRange()$
     }
 ```

@@ -71,6 +71,7 @@ public class GamePanel extends JPanel implements CellClickListener {
             if (!cell.isMine()) continue;
             boardPanel.board.removeMine(x, y);
             if (--exceedCount <= 0) return;
+            long b = 10L;
         }
     }
 
