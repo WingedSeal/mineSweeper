@@ -1,8 +1,8 @@
 ```mermaid
 classDiagram
     class App {
-        -String TITLE*
-        -String ICON_PATH*
+        -String TITLE$
+        -String ICON_PATH$
         +App()
     }
 
@@ -10,8 +10,8 @@ classDiagram
         -MenuPanel menuPanel
         -GamePanel gamePanel
         -CardLayout cardLayout
-        -String MENU*
-        -String GAME*
+        -String MENU$
+        -String GAME$
         MainPanel(String)
     }
     App *-- MainPanel
